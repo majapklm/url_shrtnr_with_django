@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+	 <meta charset="utf-8">
+  	 <meta name="viewport" content="width=device-width, initial-scale=1">
+  	 <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  	 <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+     	 <title>URL Shortener</title>
+  </head>
+  <body>
+    <div class="container-fluid">
+	 
+	 <div class="row">
+    		<div class="col-md-2" style="background-color:lavender;">
+		</div>
+    <div class=" col-md-8" style="background-color:lavender;">	
+      
+        <h1><center><b>MAHIN'S URL SHORTNER USING DJANO</b><br><hr></center></h1>
+        <center><form action="/" method="post"> 
+            
+            {% csrf_token %}
+            
+            {{ form.as_ul }}<hr>
+            <center><input name ="Short_url" type="submit" class="btn-block btn-danger" value="short_url"><br><br></center>
+            {% for url in urlset %}
+
+           {{ url.shortened_url }} :  {{ url.original_url }}  <br><hr><hr>
+
+            {% endfor %}
+        </center>
+        </form>
+	</div>
+    </div>
+    </div>
+  </body>
+</html>
